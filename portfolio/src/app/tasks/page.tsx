@@ -1,6 +1,7 @@
 import { getTasks } from '@/lib/actions';
 import { TaskCard } from '@/components/TaskCard';
 import { Header } from '@/components/Header';
+import type { Task } from '@/types';
 
 export default async function TasksPage() {
   const tasks = await getTasks();
@@ -27,7 +28,7 @@ export default async function TasksPage() {
           </div>
         ) : (
           <div className="space-y-3">
-            {tasks.map(task => (
+            {tasks.map((task: Task) => (
               <TaskCard key={task.id} task={task} />
             ))}
           </div>
